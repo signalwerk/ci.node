@@ -15,20 +15,21 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
 
-      - name: use node
+      - name: ⚡ use node
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
 
-      - name: npm setup
+      - name: ⚙️ npm setup
         run: npm ci
 
-      - name: npm build
+      - name: 🔨 npm build
         run: npm run build
 
-      - name: deploy
+      - name: 🚀 deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:

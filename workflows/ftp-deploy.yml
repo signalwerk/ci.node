@@ -1,0 +1,50 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[CI SKIP]')"
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: ⚡ use node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "10.x"
+
+      - name: ⚙️ npm setup
+        run: npm ci
+
+      - name: 🔨 npm build
+        run: npm run build
+
+      - name: 📦 Get LFTP
+        run: |
+          sudo apt install lftp
+          echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-8)" >> $GITHUB_ENV
+
+      - name: 🚀 deploy
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          bash ./ci/stamp.sh ./Resources/Private/Fusion/Information.fusion
+          bash ./ci/lftp.sh push
+        env:
+          FTP_DRY_RUN: false
+          FTP_SERVER: xxxx
+          FTP_USER: xxx@xxxx.xxx
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_POST_CMD: mv "/html/Data/Temporary" "/html/Data/${{ env.GITHUB_SHA_SHORT }}__Temporary";
+          FTP_LOCAL_DIR: .
+          FTP_REMOTE_DIR: /html/DistributionPackages/signalwerk.xxxx/
+
+      - name: ☁️ Build Cache
+        run: curl -s -I https://xxxx.xxx
