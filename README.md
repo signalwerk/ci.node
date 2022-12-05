@@ -13,3 +13,9 @@ curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/gh-page
     "deploy": "npm run build && gh-pages --dotfiles -d build",
     .nojekyll
 ```
+
+## Used in project
+
+- https://github.com/signalwerk/pixelfont.scanner
+- https://github.com/signalwerk/webtypo
+- https://github.com/signalwerk/sfgz
