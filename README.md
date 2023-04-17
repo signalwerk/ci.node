@@ -19,3 +19,10 @@ curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/gh-page
 - https://github.com/signalwerk/pixelfont.scanner
 - https://github.com/signalwerk/webtypo
 - https://github.com/signalwerk/sfgz
+- https://github.com/signalwerk/signalwerk.styles
+
+<!--
+private projects
+- https://github.com/signalwerk/lm-a/
+
+-->
