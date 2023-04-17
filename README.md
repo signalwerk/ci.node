@@ -6,6 +6,7 @@ CI scripts for node deployments
 mkdir -p .github/workflows/
 curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/gh-pages.yml > .github/workflows/gh-pages.yml
 curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/ftp-deploy.yml > .github/workflows/ftp-deploy.yml
+curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/update-readme.yml > .github/workflows/update-readme.yml
 ```
 
 ## React projects

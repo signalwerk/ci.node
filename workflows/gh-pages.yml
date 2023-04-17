@@ -31,10 +31,6 @@ jobs:
       - name: 🔨 npm build
         run: npm run build
 
-      # - name: 🏷 stamp
-      #   run: |
-      #     bash ./ci/stamp.sh ./README.md
-
       - name: 🚀 deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -42,8 +38,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
-      # - name: update readme
-      #   run: bash ./ci/update-readme.sh
+      # - name: 🏷 update-readme
+      #   run: |
+      #     bash ./ci/update-readme.sh gh-pages
 
       # - uses: EndBug/add-and-commit@v9
       #   with:
