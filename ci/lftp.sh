@@ -73,7 +73,7 @@ pushDir () {
   $FTP_INIT \
   lcd '${FTP_LOCAL_DIR}'; \
   cd '${FTP_REMOTE_DIR}'; \
-  mirror $FTP_DRY_RUN --reverse --verbose=8 --parallel=${FTP_PARALLEL} --exclude-glob node_modules/ --exclude-glob .git/ $FTP_EXCLUDES; \
+  mirror $FTP_DRY_RUN --reverse --verbose=8 --parallel=${FTP_PARALLEL} --exclude-glob node_modules/ --exclude-glob .git/ $FTP_EXCLUDES --delete; \
   $FTP_POST_CMD \
   quit; \
   " "${FTP_SERVER}"
