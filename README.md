@@ -9,6 +9,12 @@ curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/ftp-dep
 curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/update-readme.yml > .github/workflows/update-readme.yml
 ```
 
+
+## Configuring the default `GITHUB_TOKEN` permissions
+[Adjust permission](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions)
+
+
+
 ## React projects
 
 ```sh
