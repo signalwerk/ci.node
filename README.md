@@ -1,19 +1,33 @@
 # ci.node
 
-CI scripts for node deployments
+## GH Pages Deployment
 
 ```bash
 mkdir -p .github/workflows/
 curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/gh-pages.yml > .github/workflows/gh-pages.yml
-curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/ftp-deploy.yml > .github/workflows/ftp-deploy.yml
-curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/update-readme.yml > .github/workflows/update-readme.yml
 ```
 
+## FTP deployments
+
+```bash
+mkdir -p .github/workflows/
+mkdir -p ci
+curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/ftp-deploy.yml > .github/workflows/ftp-deploy.yml
+curl https://raw.githubusercontent.com/signalwerk/ci.node/main/ci/lftp.sh > ci/lftp.sh
+```
+
+## Stamping files
+
+```bash
+mkdir -p .github/workflows/
+mkdir -p ci
+curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/update-readme.yml > .github/workflows/update-readme.yml
+curl https://raw.githubusercontent.com/signalwerk/ci.node/main/ci/stamp.sh > ci/stamp.sh
+```
 
 ## Configuring the default `GITHUB_TOKEN` permissions
+
 [Adjust permission](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions)
-
-
 
 ## React projects
 
