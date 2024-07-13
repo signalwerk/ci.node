@@ -19,10 +19,14 @@ curl https://raw.githubusercontent.com/signalwerk/ci.node/main/ci/lftp.sh > ci/l
 ## Stamping files
 
 ```bash
-mkdir -p .github/workflows/
 mkdir -p ci
-curl https://raw.githubusercontent.com/signalwerk/ci.node/main/workflows/update-readme.yml > .github/workflows/update-readme.yml
 curl https://raw.githubusercontent.com/signalwerk/ci.node/main/ci/stamp.sh > ci/stamp.sh
+```
+
+```yaml
+  - name: 🏷 stamp
+    run: |
+      bash ./ci/stamp.sh ./src/index.js
 ```
 
 ## Configuring the default `GITHUB_TOKEN` permissions
