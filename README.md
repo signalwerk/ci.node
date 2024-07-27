@@ -29,6 +29,22 @@ curl https://raw.githubusercontent.com/signalwerk/ci.node/main/ci/stamp.sh > ci/
       bash ./ci/stamp.sh ./src/index.js
 ```
 
+
+## Timebased deactivation of cronjobs
+
+```bash
+mkdir -p ci
+curl https://raw.githubusercontent.com/signalwerk/ci.node/main/ci/deactivate.sh > ci/deactivate.sh
+```
+
+```yaml
+  - name: 📅 Check date and deactivate cron if necessary
+    run: |
+      bash ./ci/deactivate.sh "2024-10-20" "gh-pages.yml"
+    env:
+      GH_TOKEN: ${{ github.token }}
+```
+
 ## Configuring the default `GITHUB_TOKEN` permissions
 
 [Adjust permission](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions)
